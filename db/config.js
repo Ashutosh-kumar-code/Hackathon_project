@@ -1,0 +1,33 @@
+import mongoose from "mongoose";
+
+// mongoose.connect('mongodb+srv://ak0827kumar:xwtubTg1bA1spVwM@cluster-hackathon.ldmlizk.mongodb.net/?retryWrites=true&w=majority&appName=cluster-hackathon', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// }, console.log("database connected successfully ...."));
+
+const url = "mongodb+srv://ak0827kumar:xwtubTg1bA1spVwM@cluster-hackathon.ldmlizk.mongodb.net/?retryWrites=true&w=majority&appName=cluster-hackathon";
+
+const connection = async ()=>{
+
+    await mongoose.connect(url, 
+        {
+       useNewUrlParser: true,
+       useUnifiedTopology: true
+   }, console.log("database connected successfully ....")
+)
+   }
+   
+   
+
+// const connection = async ()=>{
+
+//     await mongoose.connect("mongodb://127.0.0.1:27017/receipeFounder", {
+//        useNewUrlParser: true,
+//        useUnifiedTopology: true
+//    }, console.log("database connected successfully ...."))
+//    }
+   
+   
+   export default connection ;
+
+//    export default connection ;
