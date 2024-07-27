@@ -35,3 +35,35 @@ export const loginProfessional = async (req,res )=>{
     }
     
 }
+
+
+
+
+export const getProfessionalList = async (req,res)=>{
+    Professional.find()
+    .then(result => {
+        res.json({
+            result
+        })
+    })
+    .catch(err => {
+        res.json({
+            err
+        })
+    })
+    
+    // delete result.password;
+     
+}
+
+
+export const searchProfessionalList = async (req,res)=>{
+    let result = await Professional.find({
+        "$or":[
+            {skills:{$regex: req.params.key}},
+            {country:{$regex: req.params.key}}
+           
+        ]
+    })
+    res.send(result);
+}
